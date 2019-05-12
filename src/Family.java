@@ -1,6 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.*;
+import java.util.Collections;
+
 
 public class Family {
 	String childrenarray[] = { "test" };
@@ -146,12 +149,18 @@ public class Family {
 	}
 
 	public String[] getParents(String name) {
-		String parentarray[] = IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0)).filter(x -> parentsassignments.get(x) == name).mapToObj(x->parentsassignments.get( x-1)).toArray(String[]::new);
-		return parentarray;
+		List<String> parentlist = IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0)).filter(x -> parentsassignments.get(x) == name).mapToObj(x->parentsassignments.get( x-1)).collect(Collectors.toList());
+		Collections.sort(parentlist); 
+		String parentarray2[]= new String[parentlist.size()];
+		parentarray2 = parentlist.toArray(new String[parentlist.size()]);
+		return parentarray2;
 	}
 
 	public String[] getChildren(String name) {
-		String childrenarray[] = IntStream.range(0, parentsassignments.size()).filter(x -> x % 2 == 0).filter(x -> parentsassignments.get(x) == name).mapToObj(x->parentsassignments.get( x+1)).toArray(String[]::new);
+		List<String> childrenlist = IntStream.range(0, parentsassignments.size()).filter(x -> x % 2 == 0).filter(x -> parentsassignments.get(x) == name).mapToObj(x->parentsassignments.get( x+1)).collect(Collectors.toList());
+		Collections.sort(childrenlist); 
+		String childrenarray[]= new String[childrenlist.size()];
+		childrenarray = childrenlist.toArray(new String[childrenlist.size()]);
 		return childrenarray;
 	}
 }

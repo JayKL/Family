@@ -251,7 +251,7 @@ class FamilyTester {
 		fam.setParent("Harold", "Charles");
 		fam.setParent("Jane", "Harold");
 		fam.setParent("Charles", "Kane");
-		String pararray[] = {"Penny","Kane"};
+		String pararray[] = {"Kane","Penny"};
 		assertArrayEquals(pararray, fam.getParents("Charles"));
 	}
 
@@ -260,11 +260,11 @@ class FamilyTester {
 		System.out.println("getChildren");
 		fam.setParent("Charles", "Penny");
 		fam.female("Penny");
-		fam.setParent("Harold", "Charles");
+		fam.setParent("Pingu", "Charles");
 		fam.setParent("Jane", "Harold");
 		fam.setParent("Charles", "Kane");
+		fam.setParent("Harold", "Charles");
 		fam.setParent("Jake", "Charles");
-		fam.setParent("Pingu", "Charles");
 
 		String childarray[] = {"Harold","Jake","Pingu"};
 		assertArrayEquals(childarray, fam.getChildren("Charles"));
