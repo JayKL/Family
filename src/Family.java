@@ -90,12 +90,39 @@ public class Family {
 			listofpeople.add(childname);
 			listofpeople.add("gender");
 		}
-		
-		if (IntStream.range(0, parentsassignments.size()).filter(x -> !(x%2==0) ).filter(x -> parentsassignments.get(x)==childname).count()<2) {
-			parentsassignments.add(parentname);
-			parentsassignments.add(childname);
 
-			return true;
+		if (IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0))
+				.filter(x -> parentsassignments.get(x) == childname).count() < 2) {
+			if (IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0))
+					.filter(x -> parentsassignments.get(x) == childname).count() < 1) {
+				parentsassignments.add(parentname);
+				parentsassignments.add(childname);
+				return true;
+			} else {
+				int positionofchild=IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0))
+				.filter(x -> parentsassignments.get(x) == childname).findFirst().getAsInt();
+				int positionofparent=positionofchild-1;
+				String nameofexistingparent=parentsassignments.get(positionofparent);
+				if(isMale(nameofexistingparent)) {
+					if (isMale(parentname)) {
+						return false;
+					} else {
+						parentsassignments.add(parentname);
+						parentsassignments.add(childname);
+						female(parentname);
+						return true;
+					}
+				} else {
+					if (isFemale(parentname)) {
+						return false;
+					} else {
+						parentsassignments.add(parentname);
+						parentsassignments.add(childname);
+						male(parentname);
+						return true;
+					}
+				}
+			}
 		} else {
 			System.out.println("cannot have more than two parents");
 			return false;
