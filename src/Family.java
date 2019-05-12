@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.stream.*;
 
 public class Family {
-	String parentsarry[] = { "test" };
 	String childrenarray[] = { "test" };
 	List<String> listofpeople = new ArrayList<String>();
 	List<String> parentsassignments = new ArrayList<String>();
@@ -91,6 +90,8 @@ public class Family {
 			listofpeople.add("gender");
 		}
 
+		
+		
 		if (IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0))
 				.filter(x -> parentsassignments.get(x) == childname).count() < 2) {
 			if (IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0))
@@ -145,10 +146,12 @@ public class Family {
 	}
 
 	public String[] getParents(String name) {
-		return parentsarry;
+		String parentarray[] = IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0)).filter(x -> parentsassignments.get(x) == name).mapToObj(x->parentsassignments.get( x-1)).toArray(String[]::new);
+		return parentarray;
 	}
 
 	public String[] getChildren(String name) {
+		String childrenarray[] = IntStream.range(0, parentsassignments.size()).filter(x -> x % 2 == 0).filter(x -> parentsassignments.get(x) == name).mapToObj(x->parentsassignments.get( x+1)).toArray(String[]::new);
 		return childrenarray;
 	}
 }

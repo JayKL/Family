@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 class FamilyTester {
 	String adult = "Henry";
 	String child = "child";
-	String testarray[] = { "test" };
 	Family fam = new Family();
 
 	@Test
@@ -246,14 +245,30 @@ class FamilyTester {
 	
 	@Test
 	void testgetParents() {
-
-		assertArrayEquals(testarray, fam.getParents("hi"));
+		System.out.println("getparents");
+		fam.setParent("Charles", "Penny");
+		fam.female("Penny");
+		fam.setParent("Harold", "Charles");
+		fam.setParent("Jane", "Harold");
+		fam.setParent("Charles", "Kane");
+		String pararray[] = {"Penny","Kane"};
+		assertArrayEquals(pararray, fam.getParents("Charles"));
 	}
 
 	@Test
 	void testgetChildren() {
+		System.out.println("getChildren");
+		fam.setParent("Charles", "Penny");
+		fam.female("Penny");
+		fam.setParent("Harold", "Charles");
+		fam.setParent("Jane", "Harold");
+		fam.setParent("Charles", "Kane");
+		fam.setParent("Jake", "Charles");
+		fam.setParent("Pingu", "Charles");
 
-		assertArrayEquals(testarray, fam.getChildren("hi"));
+		String childarray[] = {"Harold","Jake","Pingu"};
+		assertArrayEquals(childarray, fam.getChildren("Charles"));
+		
 	}
 
 }
