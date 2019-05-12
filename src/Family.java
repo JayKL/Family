@@ -112,7 +112,7 @@ public class Family {
 						female(parentname);
 						return true;
 					}
-				} else {
+				} else if (isFemale(nameofexistingparent)) {
 					if (isFemale(parentname)) {
 						return false;
 					} else {
@@ -120,6 +120,21 @@ public class Family {
 						parentsassignments.add(childname);
 						male(parentname);
 						return true;
+					}
+				} else {
+					if (isMale(parentname)) {
+						parentsassignments.add(parentname);
+						parentsassignments.add(childname);
+						female(nameofexistingparent);
+						return true;
+					} else if (isFemale(parentname)) {
+						parentsassignments.add(parentname);
+						parentsassignments.add(childname);
+						male(nameofexistingparent);
+						return true;
+					} else {
+						System.out.println("assign a gender to a parent first, cannot determine gender");
+						return false;
 					}
 				}
 			}

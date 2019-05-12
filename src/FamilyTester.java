@@ -201,17 +201,49 @@ class FamilyTester {
 
 		assertFalse(fam.isFemale("Pingu"));
 	}
+	
 
 	@Test
 	void testsetParents() {
+		System.out.println("SetParenttestprint1");
 		fam.setParent("Charles", "Penny");
+		fam.female("Penny");
 		fam.setParent("Harold", "Charles");
 		fam.setParent("Jane", "Harold");
-		fam.setParent("Charles", "Dan");
-
+		fam.setParent("Charles", "Kane");
 		assertFalse(fam.setParent("Charles", "Pingu"));
 	}
 
+	
+	@Test
+	void testsetParents2() {
+		fam.setParent("Charles", "Penny");
+		fam.setParent("Harold", "Charles");
+		fam.male("Charles");
+
+		fam.setParent("Harold", "Jane");
+		assertTrue(fam.isFemale("Jane"));
+	}
+	
+	@Test
+	void testsetParents3() {
+		fam.setParent("Charles", "Penny");
+		fam.setParent("Harold", "Charles");
+		fam.female("Charles");
+
+		fam.setParent("Harold", "Jane");
+		assertTrue(fam.isMale("Jane"));
+	}
+	
+	
+	@Test
+	void testsetParents4() {
+		System.out.println("SetParenttestprint2");
+		fam.setParent("Charles", "Penny");
+		fam.setParent("Harold", "Charles");
+		assertFalse(fam.setParent("Harold", "Jane"));
+	}
+	
 	@Test
 	void testgetParents() {
 
