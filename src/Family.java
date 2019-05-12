@@ -13,8 +13,9 @@ public class Family {
 		if (listofpeople.stream().filter(x -> x == name).findFirst().isPresent()) {
 			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
 					.findFirst().getAsInt();
-			int positionofnamesgender = positionofname +  1;
-			if (listofpeople.get(positionofnamesgender)=="female" || listofpeople.get(positionofnamesgender)=="male") {
+			int positionofnamesgender = positionofname + 1;
+			if (listofpeople.get(positionofnamesgender) == "female"
+					|| listofpeople.get(positionofnamesgender) == "male") {
 				return false;
 			}
 			listofpeople.set(positionofnamesgender, "male");
@@ -29,8 +30,9 @@ public class Family {
 		if (listofpeople.stream().filter(x -> x == name).findFirst().isPresent()) {
 			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
 					.findFirst().getAsInt();
-			int positionofnamesgender = positionofname +  1;
-			if (listofpeople.get(positionofnamesgender)=="male" || listofpeople.get(positionofnamesgender)=="female") {
+			int positionofnamesgender = positionofname + 1;
+			if (listofpeople.get(positionofnamesgender) == "male"
+					|| listofpeople.get(positionofnamesgender) == "female") {
 				return false;
 			}
 			listofpeople.set(positionofnamesgender, "female");
@@ -42,13 +44,38 @@ public class Family {
 	}
 
 	public boolean isMale(String name) {
-
-		return true;
+		if (listofpeople.stream().filter(x -> x == name).findFirst().isPresent()) {
+			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
+					.findFirst().getAsInt();
+			int positionofnamesgender = positionofname + 1;
+			if (listofpeople.get(positionofnamesgender) == "male") {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			listofpeople.add(name);
+			listofpeople.add("gender");
+			return false;
+		}
 	}
 
 	public boolean isFemale(String name) {
+		if (listofpeople.stream().filter(x -> x == name).findFirst().isPresent()) {
+			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
+					.findFirst().getAsInt();
+			int positionofnamesgender = positionofname + 1;
+			if (listofpeople.get(positionofnamesgender) == "female") {
+				return true;
+			} else {
+				return false;
+			}
 
-		return true;
+		} else {
+			listofpeople.add(name);
+			listofpeople.add("gender");
+			return false;
+		}
 	}
 
 	public boolean setParent(String childname, String parentname) {
