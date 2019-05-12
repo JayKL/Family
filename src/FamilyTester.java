@@ -11,25 +11,99 @@ class FamilyTester {
 	@Test
 	void testMale() {
 		fam.listofpeople.add("Barry");
-		fam.listofpeople.add("female");
+		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
 		fam.listofpeople.add("female");
 		fam.listofpeople.add("Joy");
 		fam.listofpeople.add("gender");
 
 		assertFalse(fam.male("Henry"));
-		System.out.println(fam.listofpeople.get(0));
-		System.out.println(fam.listofpeople.get(1));
-		System.out.println(fam.listofpeople.get(2));
-		System.out.println(fam.listofpeople.get(3));
-		System.out.println(fam.listofpeople.get(4));
-		System.out.println(fam.listofpeople.get(5));
+	}
+
+	@Test
+	void testMale2() {
+		fam.listofpeople.add("Barry");
+		fam.listofpeople.add("male");
+		fam.listofpeople.add("Henry");
+		fam.listofpeople.add("female");
+		fam.listofpeople.add("Joy");
+		fam.listofpeople.add("gender");
+
+		assertTrue(fam.male("Joy"));
+	}
+
+	@Test
+	void testMale3() {
+		fam.listofpeople.add("Barry");
+		fam.listofpeople.add("male");
+		fam.listofpeople.add("Henry");
+		fam.listofpeople.add("female");
+		fam.listofpeople.add("Joy");
+		fam.listofpeople.add("gender");
+
+		assertTrue(fam.male("Harold"));
+
+	}
+
+	@Test
+	void testMale4() {
+		fam.listofpeople.add("Barry");
+		fam.listofpeople.add("male");
+		fam.listofpeople.add("Henry");
+		fam.listofpeople.add("female");
+		fam.listofpeople.add("Joy");
+		fam.listofpeople.add("gender");
+
+		assertFalse(fam.male("Barry"));
 	}
 
 	@Test
 	void testFemale() {
+		fam.listofpeople.add("Barry");
+		fam.listofpeople.add("male");
+		fam.listofpeople.add("Henry");
+		fam.listofpeople.add("female");
+		fam.listofpeople.add("Joy");
+		fam.listofpeople.add("gender");
 
-		assertTrue(fam.female(adult));
+		assertTrue(fam.female("Pingu"));
+
+	}
+
+	@Test
+	void testFemale2() {
+		fam.listofpeople.add("Barry");
+		fam.listofpeople.add("male");
+		fam.listofpeople.add("Henry");
+		fam.listofpeople.add("female");
+		fam.listofpeople.add("Joy");
+		fam.listofpeople.add("gender");
+
+		assertFalse(fam.female("Henry"));
+	}
+
+	@Test
+	void testFemale3() {
+		fam.listofpeople.add("Barry");
+		fam.listofpeople.add("male");
+		fam.listofpeople.add("Henry");
+		fam.listofpeople.add("female");
+		fam.listofpeople.add("Joy");
+		fam.listofpeople.add("gender");
+
+		assertTrue(fam.female("Joy"));
+	}
+
+	@Test
+	void testFemale4() {
+		fam.listofpeople.add("Barry");
+		fam.listofpeople.add("male");
+		fam.listofpeople.add("Henry");
+		fam.listofpeople.add("female");
+		fam.listofpeople.add("Joy");
+		fam.listofpeople.add("gender");
+
+		assertFalse(fam.female("Barry"));
 	}
 
 	@Test

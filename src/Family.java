@@ -14,7 +14,7 @@ public class Family {
 			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
 					.findFirst().getAsInt();
 			int positionofnamesgender = positionofname +  1;
-			if (listofpeople.get(positionofnamesgender)=="female") {
+			if (listofpeople.get(positionofnamesgender)=="female" || listofpeople.get(positionofnamesgender)=="male") {
 				return false;
 			}
 			listofpeople.set(positionofnamesgender, "male");
@@ -26,7 +26,18 @@ public class Family {
 	}
 
 	public boolean female(String name) {
-
+		if (listofpeople.stream().filter(x -> x == name).findFirst().isPresent()) {
+			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
+					.findFirst().getAsInt();
+			int positionofnamesgender = positionofname +  1;
+			if (listofpeople.get(positionofnamesgender)=="male" || listofpeople.get(positionofnamesgender)=="female") {
+				return false;
+			}
+			listofpeople.set(positionofnamesgender, "female");
+		} else {
+			listofpeople.add(name);
+			listofpeople.add("female");
+		}
 		return true;
 	}
 
