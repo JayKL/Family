@@ -12,11 +12,12 @@ class FamilyTester {
 	void testMale() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("female");
-		fam.listofpeople.add("Henryz");
+		fam.listofpeople.add("Henry");
 		fam.listofpeople.add("female");
+		fam.listofpeople.add("Joy");
+		fam.listofpeople.add("gender");
 
-		assertTrue(fam.male(adult));
-
+		assertFalse(fam.male("Henry"));
 		System.out.println(fam.listofpeople.get(0));
 		System.out.println(fam.listofpeople.get(1));
 		System.out.println(fam.listofpeople.get(2));

@@ -13,8 +13,11 @@ public class Family {
 		if (listofpeople.stream().filter(x -> x == name).findFirst().isPresent()) {
 			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
 					.findFirst().getAsInt();
-			positionofname += 1;
-			listofpeople.set(positionofname, "male");
+			int positionofnamesgender = positionofname +  1;
+			if (listofpeople.get(positionofnamesgender)=="female") {
+				return false;
+			}
+			listofpeople.set(positionofnamesgender, "male");
 		} else {
 			listofpeople.add(name);
 			listofpeople.add("male");
