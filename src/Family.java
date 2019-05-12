@@ -6,6 +6,7 @@ public class Family {
 	String parentsarry[] = { "test" };
 	String childrenarray[] = { "test" };
 	List<String> listofpeople = new ArrayList<String>();
+	List<String> parentsassignments = new ArrayList<String>();
 
 	int numberofpeopleinfamily = 0;
 
@@ -79,8 +80,20 @@ public class Family {
 	}
 
 	public boolean setParent(String childname, String parentname) {
-
-		return false;
+		if (listofpeople.stream().filter(x -> x == parentname).findFirst().isPresent()) {
+		} else {
+			listofpeople.add(parentname);
+			listofpeople.add("gender");
+		}
+		if (listofpeople.stream().filter(x -> x == childname).findFirst().isPresent()) {
+		} else {
+			listofpeople.add(childname);
+			listofpeople.add("gender");
+		}
+		
+		parentsassignments.add(parentname);
+		parentsassignments.add(childname);
+		return true;
 	}
 
 	public String[] getParents(String name) {

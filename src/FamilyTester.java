@@ -202,7 +202,7 @@ class FamilyTester {
 	@Test
 	void testsetParents() {
 
-		assertFalse(fam.setParent(child, adult));
+		assertTrue(fam.setParent("Penny", "Charles"));
 	}
 
 	@Test
