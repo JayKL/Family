@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class FamilyTester {
-	String adult="adult";
+	String adult="Henry";
 	String child="child";
 	String testarray[]= {"test"};
 	Family fam=new Family();
@@ -12,6 +12,7 @@ class FamilyTester {
 	
 	assertTrue(fam.male(adult));
 	}
+	
 	@Test
 	void testFemale() {
 	
