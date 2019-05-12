@@ -153,6 +153,7 @@ class FamilyTester {
 
 		assertFalse(fam.isMale("Pingu"));
 	}
+
 	@Test
 	void testisFemale() {
 		fam.listofpeople.add("Barry");
@@ -164,6 +165,7 @@ class FamilyTester {
 
 		assertTrue(fam.isFemale("Henry"));
 	}
+
 	@Test
 	void testisFemale2() {
 		fam.listofpeople.add("Barry");
@@ -175,6 +177,7 @@ class FamilyTester {
 
 		assertFalse(fam.isFemale("Barry"));
 	}
+
 	@Test
 	void testisFemale3() {
 		fam.listofpeople.add("Barry");
@@ -186,6 +189,7 @@ class FamilyTester {
 
 		assertFalse(fam.isFemale("Joy"));
 	}
+
 	@Test
 	void testisFemale4() {
 		fam.listofpeople.add("Barry");
@@ -197,12 +201,15 @@ class FamilyTester {
 
 		assertFalse(fam.isFemale("Pingu"));
 	}
-	
 
 	@Test
 	void testsetParents() {
+		fam.setParent("Charles", "Penny");
+		fam.setParent("Harold", "Charles");
+		fam.setParent("Jane", "Harold");
+		fam.setParent("Charles", "Dan");
 
-		assertTrue(fam.setParent("Penny", "Charles"));
+		assertFalse(fam.setParent("Charles", "Pingu"));
 	}
 
 	@Test

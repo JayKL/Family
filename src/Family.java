@@ -91,9 +91,15 @@ public class Family {
 			listofpeople.add("gender");
 		}
 		
-		parentsassignments.add(parentname);
-		parentsassignments.add(childname);
-		return true;
+		if (IntStream.range(0, parentsassignments.size()).filter(x -> !(x%2==0) ).filter(x -> parentsassignments.get(x)==childname).count()<2) {
+			parentsassignments.add(parentname);
+			parentsassignments.add(childname);
+
+			return true;
+		} else {
+			System.out.println("cannot have more than two parents");
+			return false;
+		}
 	}
 
 	public String[] getParents(String name) {
