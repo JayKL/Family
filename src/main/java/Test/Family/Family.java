@@ -12,6 +12,7 @@ public class Family {
 	List<String> parentsassignments = new ArrayList<String>();
 	List<String> ancestorlist = new ArrayList<String>();
 
+
 	int numberofpeopleinfamily = 0;
 
 	public boolean male(String name) {
@@ -105,9 +106,10 @@ public class Family {
 			checkAncestor(parentname);
 			if (ancestorlist.stream().filter(x -> x.equals(parentname)).findFirst().isPresent()) {
 				System.out.println("cannot be your own ancestor");
+				ancestorlist = new ArrayList<String>();
 				return false;
 			}else {
-			
+				ancestorlist = new ArrayList<String>();
 			
 				if (IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0))
 						.filter(x -> parentsassignments.get(x) == childname).count() < 2) {
