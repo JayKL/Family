@@ -7,13 +7,9 @@ import java.util.stream.*;
 import java.util.Collections;
 
 public class Family {
-	String childrenarray[] = { "test" };
 	List<String> listofpeople = new ArrayList<String>();
 	List<String> parentsassignments = new ArrayList<String>();
 	List<String> ancestorlist = new ArrayList<String>();
-
-
-	int numberofpeopleinfamily = 0;
 
 	public boolean male(String name) {
 		if (listofpeople.stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
@@ -33,7 +29,7 @@ public class Family {
 	}
 
 	public boolean female(String name) {
-		if (listofpeople.stream().filter(x -> x.equals( name)).findFirst().isPresent()) {
+		if (listofpeople.stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
 			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
 					.findFirst().getAsInt();
 			int positionofnamesgender = positionofname + 1;
@@ -97,20 +93,19 @@ public class Family {
 			listofpeople.add("gender");
 		}
 
-		
 		if (childname.equals(parentname)) {
 			System.out.println("cannot be own parent");
 			return false;
-			
+
 		} else {
 			checkAncestor(parentname);
 			if (ancestorlist.stream().filter(x -> x.equals(parentname)).findFirst().isPresent()) {
 				System.out.println("cannot be your own ancestor");
 				ancestorlist = new ArrayList<String>();
 				return false;
-			}else {
+			} else {
 				ancestorlist = new ArrayList<String>();
-			
+
 				if (IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0))
 						.filter(x -> parentsassignments.get(x) == childname).count() < 2) {
 					if (IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0))
@@ -162,10 +157,9 @@ public class Family {
 					System.out.println("cannot have more than two parents");
 					return false;
 				}
-				
-			
+
 			}
-		
+
 		}
 	}
 
@@ -189,7 +183,7 @@ public class Family {
 		return childrenarray;
 	}
 
-	public String[] checkAncestor(String getparentsof) {
+	private String[] checkAncestor(String getparentsof) {
 
 		String returnarray[] = new String[2];
 		if (getParents(getparentsof) == null) {
@@ -199,7 +193,8 @@ public class Family {
 			Stream<String> addcurrentparents = Arrays.stream(getParents(getparentsof));
 			Stream<String> runsrecursion = Arrays.stream(getParents(getparentsof));
 			List<String> ancestorlisttemp = addcurrentparents.collect(Collectors.toList());
-			runsrecursion.map(x -> checkAncestor( x)).filter(x -> x == (null)).forEach(x -> System.out.println("stream2 " + x));
+			runsrecursion.map(x -> checkAncestor(x)).filter(x -> x == (null))
+					.forEach(x -> System.out.println(x));
 			ancestorlist.addAll(ancestorlisttemp);
 			return returnarray;
 
