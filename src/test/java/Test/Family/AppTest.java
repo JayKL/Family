@@ -1,14 +1,16 @@
-import static org.junit.jupiter.api.Assertions.*;
+package Test.Family;
 
-import org.junit.jupiter.api.Test;
 
-class FamilyTester {
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class AppTest {
 	String adult = "Henry";
 	String child = "child";
 	Family fam = new Family();
-
 	@Test
-	void testMale() {
+	public void testMale() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -18,9 +20,8 @@ class FamilyTester {
 
 		assertFalse(fam.male("Henry"));
 	}
-
 	@Test
-	void testMale2() {
+	public void testMale2() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -30,9 +31,8 @@ class FamilyTester {
 
 		assertTrue(fam.male("Joy"));
 	}
-
 	@Test
-	void testMale3() {
+	public void testMale3() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -43,9 +43,8 @@ class FamilyTester {
 		assertTrue(fam.male("Harold"));
 
 	}
-
 	@Test
-	void testMale4() {
+	public void testMale4() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -55,9 +54,8 @@ class FamilyTester {
 
 		assertFalse(fam.male("Barry"));
 	}
-
 	@Test
-	void testFemale() {
+	public void testFemale() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -68,9 +66,8 @@ class FamilyTester {
 		assertTrue(fam.female("Pingu"));
 
 	}
-
 	@Test
-	void testFemale2() {
+	public void testFemale2() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -80,9 +77,8 @@ class FamilyTester {
 
 		assertFalse(fam.female("Henry"));
 	}
-
 	@Test
-	void testFemale3() {
+	public void testFemale3() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -92,9 +88,8 @@ class FamilyTester {
 
 		assertTrue(fam.female("Joy"));
 	}
-
 	@Test
-	void testFemale4() {
+	public void testFemale4() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -104,9 +99,8 @@ class FamilyTester {
 
 		assertFalse(fam.female("Barry"));
 	}
-
 	@Test
-	void testisMale() {
+	public void testisMale() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -116,9 +110,8 @@ class FamilyTester {
 
 		assertTrue(fam.isMale("Barry"));
 	}
-
 	@Test
-	void testisMale2() {
+	public void testisMale2() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -130,7 +123,7 @@ class FamilyTester {
 	}
 
 	@Test
-	void testisMale3() {
+	public void testisMale3() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -142,7 +135,7 @@ class FamilyTester {
 	}
 
 	@Test
-	void testisMale4() {
+	public void testisMale4() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -154,7 +147,7 @@ class FamilyTester {
 	}
 
 	@Test
-	void testisFemale() {
+	public void testisFemale() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -166,7 +159,7 @@ class FamilyTester {
 	}
 
 	@Test
-	void testisFemale2() {
+	public void testisFemale2() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -178,7 +171,7 @@ class FamilyTester {
 	}
 
 	@Test
-	void testisFemale3() {
+	public void testisFemale3() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -190,7 +183,7 @@ class FamilyTester {
 	}
 
 	@Test
-	void testisFemale4() {
+	public void testisFemale4() {
 		fam.listofpeople.add("Barry");
 		fam.listofpeople.add("male");
 		fam.listofpeople.add("Henry");
@@ -203,7 +196,7 @@ class FamilyTester {
 	
 
 	@Test
-	void testsetParents() {
+	public void testsetParents() {
 		System.out.println("SetParenttestprint1");
 		fam.setParent("Charles", "Penny");
 		fam.female("Penny");
@@ -213,9 +206,8 @@ class FamilyTester {
 		assertFalse(fam.setParent("Charles", "Pingu"));
 	}
 
-	
 	@Test
-	void testsetParents2() {
+	public void testsetParents2() {
 		fam.setParent("Charles", "Penny");
 		fam.setParent("Harold", "Charles");
 		fam.male("Charles");
@@ -225,7 +217,7 @@ class FamilyTester {
 	}
 	
 	@Test
-	void testsetParents3() {
+	public void testsetParents3() {
 		fam.setParent("Charles", "Penny");
 		fam.setParent("Harold", "Charles");
 		fam.female("Charles");
@@ -236,7 +228,7 @@ class FamilyTester {
 	
 	
 	@Test
-	void testsetParents4() {
+	public void testsetParents4() {
 		System.out.println("SetParenttestprint2");
 		fam.setParent("Charles", "Penny");
 		fam.setParent("Harold", "Charles");
@@ -244,7 +236,7 @@ class FamilyTester {
 	}
 	
 	@Test
-	void testgetParents() {
+	public void testgetParents() {
 		System.out.println("getparents");
 		fam.setParent("Charles", "Penny");
 		fam.female("Penny");
@@ -256,7 +248,7 @@ class FamilyTester {
 	}
 
 	@Test
-	void testgetChildren() {
+	public void testgetChildren() {
 		System.out.println("getChildren");
 		fam.setParent("Charles", "Penny");
 		fam.female("Penny");
@@ -268,6 +260,41 @@ class FamilyTester {
 
 		String childarray[] = {"Harold","Jake","Pingu"};
 		assertArrayEquals(childarray, fam.getChildren("Charles"));
+		
+	}
+	
+	@Test
+	public void testingAncestorChecker() {
+		System.out.println("Ancestor Check start");
+		fam.female("Penny");
+
+		fam.setParent("Penny", "a");
+		fam.setParent("a", "b");
+
+		fam.setParent("Charles", "Penny");
+		fam.setParent("Pingu", "Charles");
+		fam.setParent("Charles", "Kane");
+		fam.male("Charles");
+
+		fam.setParent("Pingu", "Harry");
+		fam.setParent("Harry", "Foster");
+		fam.setParent("Foster", "Howard");
+		fam.setParent("Howard", "e");
+		fam.male("e");
+		fam.setParent("Howard", "f");
+		
+		fam.setParent("j", "x");
+
+
+
+		fam.setParent("Leslie", "Pingu");
+
+		fam.checkAncestor("Pingu");
+
+		fam.ancestorlist.stream().forEach(x -> System.out.println("From ancestorlist " + x));
+		assertFalse(fam.setParent("Penny","Foster"));
+		
+		System.out.println("Ancestor Check end");
 		
 	}
 
