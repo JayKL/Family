@@ -10,100 +10,100 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Family {
-	List<String> listofpeople = new ArrayList<String>();
+	private List<String> listofpeople = new ArrayList<String>();
 	private List<String> parentsassignments = new ArrayList<String>();
 	private List<String> ancestorlist = new ArrayList<String>();
 
 	public boolean male(String name) {
-		if (listofpeople.stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
-			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
+		if (getListofpeople().stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
+			int positionofname = IntStream.range(0, getListofpeople().size()).filter(x -> getListofpeople().get(x) == name)
 					.findFirst().getAsInt();
 			int positionofnamesgender = positionofname + 1;
-			if (listofpeople.get(positionofnamesgender) == "female"
-					|| listofpeople.get(positionofnamesgender) == "male") {
+			if (getListofpeople().get(positionofnamesgender) == "female"
+					|| getListofpeople().get(positionofnamesgender) == "male") {
 				return false;
 			}
-			listofpeople.set(positionofnamesgender, "male");
+			getListofpeople().set(positionofnamesgender, "male");
 		} else {
-			listofpeople.add(name);
-			listofpeople.add("male");
+			getListofpeople().add(name);
+			getListofpeople().add("male");
 		}
 		return true;
 	}
 
 	public boolean female(String name) {
-		if (listofpeople.stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
-			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
+		if (getListofpeople().stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
+			int positionofname = IntStream.range(0, getListofpeople().size()).filter(x -> getListofpeople().get(x) == name)
 					.findFirst().getAsInt();
 			int positionofnamesgender = positionofname + 1;
-			if (listofpeople.get(positionofnamesgender) == "male"
-					|| listofpeople.get(positionofnamesgender) == "female") {
+			if (getListofpeople().get(positionofnamesgender) == "male"
+					|| getListofpeople().get(positionofnamesgender) == "female") {
 				return false;
 			}
-			listofpeople.set(positionofnamesgender, "female");
+			getListofpeople().set(positionofnamesgender, "female");
 		} else {
-			listofpeople.add(name);
-			listofpeople.add("female");
+			getListofpeople().add(name);
+			getListofpeople().add("female");
 		}
 		return true;
 	}
 
 	public boolean isMale(String name) {
-		if (listofpeople.stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
-			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
+		if (getListofpeople().stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
+			int positionofname = IntStream.range(0, getListofpeople().size()).filter(x -> getListofpeople().get(x) == name)
 					.findFirst().getAsInt();
 			int positionofnamesgender = positionofname + 1;
-			if (listofpeople.get(positionofnamesgender) == "male") {
+			if (getListofpeople().get(positionofnamesgender) == "male") {
 				return true;
 			} else {
 				return false;
 			}
 		} else {
-			listofpeople.add(name);
-			listofpeople.add("gender");
+			getListofpeople().add(name);
+			getListofpeople().add("gender");
 			return false;
 		}
 	}
 
 	public boolean isFemale(String name) {
-		if (listofpeople.stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
-			int positionofname = IntStream.range(0, listofpeople.size()).filter(x -> listofpeople.get(x) == name)
+		if (getListofpeople().stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
+			int positionofname = IntStream.range(0, getListofpeople().size()).filter(x -> getListofpeople().get(x) == name)
 					.findFirst().getAsInt();
 			int positionofnamesgender = positionofname + 1;
-			if (listofpeople.get(positionofnamesgender) == "female") {
+			if (getListofpeople().get(positionofnamesgender) == "female") {
 				return true;
 			} else {
 				return false;
 			}
 
 		} else {
-			listofpeople.add(name);
-			listofpeople.add("gender");
+			getListofpeople().add(name);
+			getListofpeople().add("gender");
 			return false;
 		}
 	}
 
 	public boolean setParent(String childname, String parentname) {
-		if (listofpeople.stream().filter(x -> x.equals(parentname)).findFirst().isPresent()) {
-		//	System.out.println("parent exists");
+		if (getListofpeople().stream().filter(x -> x.equals(parentname)).findFirst().isPresent()) {
+			// System.out.println("parent exists");
 		} else {
-			listofpeople.add(parentname);
-			listofpeople.add("gender");
+			getListofpeople().add(parentname);
+			getListofpeople().add("gender");
 		}
-		if (listofpeople.stream().filter(x -> x.equals(childname)).findFirst().isPresent()) {
+		if (getListofpeople().stream().filter(x -> x.equals(childname)).findFirst().isPresent()) {
 		} else {
-			listofpeople.add(childname);
-			listofpeople.add("gender");
+			getListofpeople().add(childname);
+			getListofpeople().add("gender");
 		}
 
 		if (childname.equals(parentname)) {
-		//	System.out.println("cannot be own parent");
+			// System.out.println("cannot be own parent");
 			return false;
 
 		} else {
 			checkAncestor(parentname);
 			if (ancestorlist.stream().filter(x -> x.equals(parentname)).findFirst().isPresent()) {
-				//System.out.println("cannot be your own ancestor");
+				// System.out.println("cannot be your own ancestor");
 				ancestorlist = new ArrayList<String>();
 				return false;
 			} else {
@@ -151,13 +151,14 @@ public class Family {
 								male(nameofexistingparent);
 								return true;
 							} else {
-								//System.out.println("assign a gender to a parent first, cannot determine gender");
+								// System.out.println("assign a gender to a parent first, cannot determine
+								// gender");
 								return false;
 							}
 						}
 					}
 				} else {
-					//System.out.println("cannot have more than two parents");
+					// System.out.println("cannot have more than two parents");
 					return false;
 				}
 
@@ -167,10 +168,10 @@ public class Family {
 	}
 
 	public String[] getParents(String name) {
-		if (listofpeople.stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
+		if (getListofpeople().stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
 		} else {
-			listofpeople.add(name);
-			listofpeople.add("gender");
+			getListofpeople().add(name);
+			getListofpeople().add("gender");
 		}
 		List<String> parentlist = IntStream.range(0, parentsassignments.size()).filter(x -> !(x % 2 == 0))
 				.filter(x -> parentsassignments.get(x) == name).mapToObj(x -> parentsassignments.get(x - 1))
@@ -182,10 +183,10 @@ public class Family {
 	}
 
 	public String[] getChildren(String name) {
-		if (listofpeople.stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
+		if (getListofpeople().stream().filter(x -> x.equals(name)).findFirst().isPresent()) {
 		} else {
-			listofpeople.add(name);
-			listofpeople.add("gender");
+			getListofpeople().add(name);
+			getListofpeople().add("gender");
 		}
 		List<String> childrenlist = IntStream.range(0, parentsassignments.size()).filter(x -> x % 2 == 0)
 				.filter(x -> parentsassignments.get(x) == name).mapToObj(x -> parentsassignments.get(x + 1))
@@ -212,5 +213,13 @@ public class Family {
 		} else {
 			return returnarray;
 		}
+	}
+
+	public List<String> getListofpeople() {
+		return listofpeople;
+	}
+
+	public void setListofpeople(List<String> listofpeople) {
+		this.listofpeople = listofpeople;
 	}
 }
