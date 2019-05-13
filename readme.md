@@ -1,10 +1,10 @@
 # Readme for Family Class
 #### Important Lists
-listofpeople, list of all people, even is name odd is gender of the previous name
-  example at position 0 have "Harry", their gender will be in position 1 with something like "Gender"
-parentassignments, list of all parent assignments, even is parent child is odd,
-  example at position - have "Harry", their child will be in position 1 with name "Harrys Child"
-ancestorlist, placeholder for a list of all ancestors for a given name, used to store the list of ancestors then check that list for a name then to reset it.
+listofpeople, list of all people, even is name odd is gender of the previous name <br/>
+  example at position 0 have "Harry", their gender will be in position 1 with something like "Gender" <br/>
+parentassignments, list of all parent assignments, even is parent child is odd, <br/>
+  example at position - have "Harry", their child will be in position 1 with name "Harrys Child" <br/>
+ancestorlist, placeholder for a list of all ancestors for a given name, used to store the list of ancestors then check that list for a name then to reset it. <br/>
 
 #### male
 Method returns boolean, checks listofpeople for gender of given name, and sets it to male and returns true if genderless or returns false if female. Creates a name with gender male if name does not exist, returning true.
