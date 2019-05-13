@@ -254,6 +254,12 @@ public class AppTest {
 	}
 
 	@Test
+	public void testgetParents2() {
+		String emptyarry[]= {};
+		assertArrayEquals(emptyarry,fam.getParents("Harry"));
+	}
+	
+	@Test
 	public void testgetChildren() {
 		System.out.println("getChildren");
 		fam.setParent("Charles", "Penny");
@@ -267,6 +273,12 @@ public class AppTest {
 		String childarray[] = { "Harold", "Jake", "Pingu" };
 		assertArrayEquals(childarray, fam.getChildren("Charles"));
 
+	}
+	
+	@Test
+	public void testgetChildren2() {
+		String emptyarry[]= {};
+		assertArrayEquals(emptyarry,fam.getChildren("Harry"));
 	}
 
 	@Test
